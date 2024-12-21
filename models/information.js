@@ -13,6 +13,14 @@ const informationSchema = new Schema({
         type: String,
 
     },
+    phone: {
+        type: String,
+
+    },
+    pin: {
+        type: String,
+
+    },
     code: {
         type: String,
 
