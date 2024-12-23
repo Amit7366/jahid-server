@@ -50,7 +50,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: ['http://localhost:5173','https://texts-now.web.app','https://txtserver.web.app','http://localhost:3000'],
+        origin: ['http://localhost:5173','https://tesxtonws.web.app','https://txtserver.web.app','http://localhost:3000'],
         methods: ['GET', 'POST'],
         
     }
@@ -58,23 +58,7 @@ const io = new Server(server, {
 
 io.on("connection", (socket) => {
     console.log("User connected: ", socket.id);  
-    socket.on("buttonClick", (data) => {
-        // console.log("Button clicked");
-        socket.broadcast.emit("buttonClick",data);
-    })  
-    // Listen for `backClick` event and broadcast to other clients
-    socket.on("backClick", (data) => {
-        console.log("backClick received:", data);
-        socket.broadcast.emit("backClick", data);
-    });
-    socket.on("doneClick", (data) => {
-        console.log("doneClick received:", data);
-        socket.broadcast.emit("doneClick", data);
-    });
-    socket.on("codeClick", (data) => {
-        console.log("codeClick received:", data);
-        socket.broadcast.emit("codeClick", data);
-    });
+   
     socket.on("newInfo", (data) => {
         console.log("newInfo received:", data);
         socket.broadcast.emit("newInfo", data);
